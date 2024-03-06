@@ -10,233 +10,164 @@
   </head>
   <body>
     <div class="container">
-      <div class="invoice__page">
-        <div class="inoice">
-          <div class="invoice__top">
-            <div class="invoice__top--left">
-              <button class="add__logo--btn">
-                <div class="add__logo">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="plus__icon"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M12 4.5v15m7.5-7.5h-15"
-                    />
-                  </svg>
-                  <p class="btn__text">Add Your Logo</p>
+      <div class="invoice__box">
+        <div class="page1"></div>
+        <div class="page2"></div>
+        <div class="invoice__page">
+          <div class="inoice">
+            <div class="invoice__top">
+              <div class="invoice__top--left">
+                <div class="invoice__text--box2">
+                  <input class="invoice__text" type="text" value="INVOICE" />
+                  <div class="invoice__id--box">
+                    <span class="hash">#</span>
+                    <input type="text" name="id" value="5" class="invoice-id" />
+                  </div>
                 </div>
-              </button>
-              <div class="invoice__from--field">
-                <textarea
-                  rows="2"
-                  type="text"
-                  placeholder="Who is this invoice from?(required)"
-                  class="invoice__from--input"
-                ></textarea>
-              </div>
-              <div class="invoice-to__details">
-                <div class="bill__to--field">
-                  <input type="text" value="Bill To" class="bill-to__label" />
-                  <textarea
-                    rows="2"
-                    type="text"
-                    class="bill-to__input"
-                    placeholder="Who is this invoice to? (required)"
-                  ></textarea>
-                </div>
-                <div class="ship__to--field">
-                  <input type="text" value="Ship To" class="ship-to__label" />
-                  <textarea
-                    rows="2"
-                    type="text"
-                    class="ship-to__input"
-                    placeholder="(optional)"
-                  ></textarea>
-                </div>
-              </div>
-            </div>
-            <div class="invoice__top--right">
-              <div class="invoice__text--box">
-                <input class="invoice__text" type="text" value="INVOICE" />
-                <div class="invoice__id--box">
-                  <span class="hash">#</span>
-                  <input type="text" name="id" id="" class="invoice-id" />
-                </div>
-              </div>
-              <div class="invoice__details">
-                <div class="invoice__detail">
-                  <input
-                    type="text"
-                    class="invoice__detail--label"
-                    value="Date"
-                  />
-                  <input type="date" class="invoice__detail--input" />
-                </div>
-                <div class="invoice__detail">
-                  <input
-                    type="text"
-                    class="invoice__detail--label"
-                    value="Payment Terms"
-                  />
-                  <input type="text" class="invoice__detail--input" />
-                </div>
-                <div class="invoice__detail">
-                  <input
-                    type="text"
-                    class="invoice__detail--label"
-                    value="Due Date"
-                  />
-                  <input type="date" class="invoice__detail--input" />
-                </div>
-                <div class="invoice__detail">
-                  <input
-                    type="text"
-                    class="invoice__detail--label"
-                    value="PO Number"
-                  />
-                  <input type="text" class="invoice__detail--input" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="invoice__middle">
-            <div class="item__header">
-              <input
-                type="text"
-                value="Item"
-                class="item__header--text item__header--item"
-              />
-              <input
-                type="text"
-                value="Quantity"
-                class="item__header--text item__header--quantity"
-              />
-              <input
-                type="text"
-                value="Rate"
-                class="item__header--text item__header--rate"
-              />
-              <input
-                type="text"
-                value="Amount"
-                class="item__header--text item__header--amount"
-              />
-            </div>
-            <div class="item__row">
-              <input
-                type="text"
-                placeholder="Description of service or product..."
-                value=""
-                class="item__row--input input-item"
-              />
-              <input
-                type="number"
-                placeholder="1"
-                value=""
-                class="item__row--input input-quntity"
-              />
-              <input
-                type="number"
-                placeholder=""
-                value=""
-                class="item__row--input input-rate"
-              />
-              <div class="item__row--amount">50</div>
-            </div>
-            <div class="add__line--item">
-              <button class="add__line--btn btn">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="add__line--icon"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 4.5v15m7.5-7.5h-15"
-                  />
-                </svg>
-                <p class="add__line--btn-text">Line item</p>
-              </button>
-            </div>
-          </div>
-          <div class="invoice__bottom">
-            <div class="invoice__bottom--left">
-              <div class="notes__box">
-                <input
-                  type="text"
-                  value="Notes"
-                  class="notes__tittle invoice__bottom--left-tittle"
-                />
-                <textarea
-                  rows="3"
-                  type="text"
-                  class="notes__input invoice__bottom--left-input"
-                  placeholder="Notes - any relevant information not already covered"
-                ></textarea>
-              </div>
-              <div class="terms__box">
-                <input
-                  type="text"
-                  value="Terms"
-                  class="terms__tittle invoice__bottom--left-tittle"
-                />
-                <textarea
-                  rows="3"
-                  type="text"
-                  class="terms__input invoice__bottom--left-input"
-                  placeholder="Terms and conditions - late fees, payment methods, delivery schedule"
-                ></textarea>
-              </div>
-            </div>
-            <div class="invoice__bottom--right">
-              <div class="invoice__bottom--right-row1">
-                <div class="subtotal__box">
-                  <input
-                    type="text"
-                    value="Subtotal"
-                    class="subtotal__tittle title"
-                  />
-                  <p class="subtotal__value value">0.00</p>
-                </div>
-                <div class="tax__box">
-                  <input type="text" value="Tax" class="tax__tittle title" />
-                  <input type="number" class="tax__input input-num" value="0" />
-                  <p class="tax__percentage">%</p>
-                  <p class="tax__change--type">
+                <button class="add__logo--btn">
+                  <div class="add__logo">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke-width="1.5"
                       stroke="currentColor"
-                      class="change--type--icon"
+                      class="plus__icon"
                     >
                       <path
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3"
+                        d="M12 4.5v15m7.5-7.5h-15"
                       />
                     </svg>
-                  </p>
+                    <p class="btn__text">Add Your Logo</p>
+                  </div>
+                </button>
+                <div class="invoice__from--field">
+                  <textarea
+                    rows="2"
+                    type="text"
+                    placeholder="Who is this invoice from?(required)"
+                    class="invoice__from--input"
+                  ></textarea>
+                </div>
+                <div class="invoice-to__details">
+                  <div class="bill__to--field">
+                    <input type="text" value="Bill To" class="bill-to__label" />
+                    <textarea
+                      rows="2"
+                      type="text"
+                      class="bill-to__input"
+                      placeholder="Who is this invoice to? (required)"
+                    ></textarea>
+                  </div>
+                  <div class="ship__to--field">
+                    <input type="text" value="Ship To" class="ship-to__label" />
+                    <textarea
+                      rows="2"
+                      type="text"
+                      class="ship-to__input"
+                      placeholder="(optional)"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="invoice__top--right">
+                <div class="invoice__text--box">
+                  <input class="invoice__text" type="text" value="INVOICE" />
+                  <div class="invoice__id--box">
+                    <span class="hash">#</span>
+                    <input type="text" name="id" value="" class="invoice-id" />
+                  </div>
+                </div>
+                <div class="invoice__details">
+                  <div class="invoice__detail">
+                    <input
+                      type="text"
+                      class="invoice__detail--label"
+                      value="Date"
+                    />
+                    <input
+                      type="date"
+                      class="invoice__detail--input invoice__detail--input-date"
+                    />
+                  </div>
+                  <div class="invoice__detail">
+                    <input
+                      type="text"
+                      class="invoice__detail--label"
+                      value="Payment Terms"
+                    />
+                    <input type="text" class="invoice__detail--input" />
+                  </div>
+                  <div class="invoice__detail">
+                    <input
+                      type="text"
+                      class="invoice__detail--label"
+                      value="Due Date"
+                    />
+                    <input
+                      type="date"
+                      class="invoice__detail--input invoice__detail--input-date"
+                    />
+                  </div>
+                  <div class="invoice__detail">
+                    <input
+                      type="text"
+                      class="invoice__detail--label"
+                      value="PO Number"
+                    />
+                    <input type="text" class="invoice__detail--input" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="invoice__middle">
+              <div class="item__header">
+                <input
+                  type="text"
+                  value="Item"
+                  class="item__header--text item__header--item"
+                />
+                <input
+                  type="text"
+                  value="Quantity"
+                  class="item__header--text item__header--quantity"
+                />
+                <input
+                  type="text"
+                  value="Rate"
+                  class="item__header--text item__header--rate"
+                />
+                <input
+                  type="text"
+                  value="Amount"
+                  class="item__header--text item__header--amount"
+                />
+              </div>
+              <div class="item__row">
+                <input
+                  type="text"
+                  placeholder="Description of service or product..."
+                  value=""
+                  class="item__row--input input-item"
+                />
 
+                <input
+                  type="number"
+                  placeholder="Quantity"
+                  value="1"
+                  class="item__row--input input-quntity"
+                />
+
+                <div class="item__input--rate">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
-                    class="close-icon"
+                    class="mul-icon"
                   >
                     <path
                       stroke-linecap="round"
@@ -244,73 +175,293 @@
                       d="M6 18 18 6M6 6l12 12"
                     />
                   </svg>
-                </div>
-              </div>
-              <div class="invoice__bottom--right-row2">
-                <div class="discount-box">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="plus__icon--green"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M12 4.5v15m7.5-7.5h-15"
-                    />
-                  </svg>
-                  <p class="discount">Discount</p>
-                </div>
-                <div class="shipping-box">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="plus__icon--green"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M12 4.5v15m7.5-7.5h-15"
-                    />
-                  </svg>
-                  <p class="shipping">Shipping</p>
-                </div>
-              </div>
-              <div class="invoice__bottom--right-row3">
-                <div class="total__box">
-                  <input
-                    type="text"
-                    value="Total"
-                    class="total__tittle title"
-                  />
-                  <p class="total__value value">0.00</p>
-                </div>
-                <div class="amount-paid__box">
-                  <input
-                    type="text"
-                    value="Amount paid"
-                    class="amount-paid__tittle title"
-                  />
+                  <p class="cureency currency-rate">$</p>
                   <input
                     type="number"
-                    class="amount__input input-num"
-                    value="0"
+                    placeholder=""
+                    value=""
+                    class="item__row--input input-rate"
                   />
-                  <p class="currency">$</p>
                 </div>
-                <div class="balance-due__box">
+                <div class="item__row--amount">
+                  <p>
+                    <span class="currency-amount">$ </span
+                    ><span class="item__row--amount-value">00</span>
+                  </p>
+                </div>
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="item__line--close-icon"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18 18 6M6 6l12 12"
+                  />
+                </svg>
+              </div>
+
+              <div class="add__line--item">
+                <button class="add__line--btn btn">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="add__line--icon"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 4.5v15m7.5-7.5h-15"
+                    />
+                  </svg>
+                  <p class="add__line--btn-text">Line item</p>
+                </button>
+              </div>
+            </div>
+            <div class="invoice__bottom">
+              <div class="invoice__bottom--left">
+                <div class="notes__box">
                   <input
                     type="text"
-                    value="Balance Due"
-                    class="balance-due__tittle title"
+                    value="Notes"
+                    class="notes__tittle invoice__bottom--left-tittle"
                   />
-                  <p class="balance value">Rs. 0.00</p>
+                  <textarea
+                    rows="3"
+                    type="text"
+                    class="notes__input invoice__bottom--left-input"
+                    placeholder="Notes - any relevant information not already covered"
+                  ></textarea>
+                </div>
+                <div class="terms__box">
+                  <input
+                    type="text"
+                    value="Terms"
+                    class="terms__tittle invoice__bottom--left-tittle"
+                  />
+                  <textarea
+                    rows="3"
+                    type="text"
+                    class="terms__input invoice__bottom--left-input"
+                    placeholder="Terms and conditions - late fees, payment methods, delivery schedule"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="invoice__bottom--right">
+                <div class="invoice__bottom--right-row1">
+                  <div class="subtotal__box">
+                    <input
+                      type="text"
+                      value="Subtotal"
+                      class="subtotal__tittle title"
+                    />
+                    <p class="subtotal__value value">0.00</p>
+                  </div>
+                  <div class="tax__box">
+                    <input type="text" value="Tax" class="tax__tittle title" />
+                    <input
+                      type="number"
+                      class="tax__input input-num"
+                      value="0"
+                    />
+                    <p class="tax__percentage percentage">%</p>
+                    <p class="tax__change--type">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="change--type--icon change-type"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3"
+                        />
+                      </svg>
+                    </p>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="close-icon"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 18 18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </div>
+                  <div class="discount__box">
+                    <input
+                      type="text"
+                      value="Discount"
+                      class="discount__tittle title"
+                    />
+                    <input
+                      type="number"
+                      class="discount__input input-num"
+                      value="0"
+                    />
+                    <p class="discount__percentage percentage">%</p>
+                    <p class="discount__change--type">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="change--type--icon change-type"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3"
+                        />
+                      </svg>
+                    </p>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="close-icon"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 18 18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </div>
+                  <div class="shipping__box">
+                    <input
+                      type="text"
+                      value="Shipping"
+                      class="shipping__tittle title"
+                    />
+                    <input
+                      type="number"
+                      class="shipping__input input-num"
+                      value="0"
+                    />
+                    <!-- <p class="shipping__percentage percentage">%</p>
+                    <p class="shipping__change--type">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="change--type--icon change-type"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3"
+                        />
+                      </svg>
+                    </p> -->
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="close-icon"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 18 18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="invoice__bottom--right-row2">
+                  <div class="discount-btn">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="plus__icon--green"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 4.5v15m7.5-7.5h-15"
+                      />
+                    </svg>
+                    <p class="discount">Discount</p>
+                  </div>
+                  <div class="shipping-btn">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="plus__icon--green"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 4.5v15m7.5-7.5h-15"
+                      />
+                    </svg>
+                    <p class="shipping">Shipping</p>
+                  </div>
+                </div>
+                <div class="invoice__bottom--right-row3">
+                  <div class="total__box">
+                    <input
+                      type="text"
+                      value="Total"
+                      class="total__tittle title"
+                    />
+                    <p class="total__value value">0.00</p>
+                  </div>
+                  <div class="amount-paid__box">
+                    <input
+                      type="text"
+                      value="Amount paid"
+                      class="amount-paid__tittle title"
+                    />
+                    <div class="amount__input--box">
+                      <input
+                        type="number"
+                        class="amount__input input-num"
+                        value="0"
+                      />
+                      <p class="currency">$</p>
+                    </div>
+                  </div>
+                  <div class="balance-due__box">
+                    <input
+                      type="text"
+                      value="Balance Due"
+                      class="balance-due__tittle title"
+                    />
+                    <p class="balance value">Rs. 0.00</p>
+                  </div>
                 </div>
               </div>
             </div>
