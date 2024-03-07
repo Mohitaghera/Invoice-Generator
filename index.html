@@ -6,6 +6,10 @@
     <title>Invoice Generator</title>
     <link rel="icon" type="image/x-icon" href="fav.png" />
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
     <script defer src="script.js"></script>
   </head>
   <body>
@@ -14,14 +18,20 @@
         <div class="page1"></div>
         <div class="page2"></div>
         <div class="invoice__page">
-          <div class="inoice">
+          <div class="invoice">
             <div class="invoice__top">
               <div class="invoice__top--left">
                 <div class="invoice__text--box2">
                   <input class="invoice__text" type="text" value="INVOICE" />
                   <div class="invoice__id--box">
                     <span class="hash">#</span>
-                    <input type="text" name="id" value="5" class="invoice-id" />
+                    <input
+                      type="text"
+                      name="id"
+                      value="5"
+                      class="invoice-id"
+                      oninput="moveCursorToEnd(this)"
+                    />
                   </div>
                 </div>
                 <button class="add__logo--btn">
@@ -49,11 +59,18 @@
                     type="text"
                     placeholder="Who is this invoice from?(required)"
                     class="invoice__from--input"
+                    value=""
+                    required
                   ></textarea>
                 </div>
                 <div class="invoice-to__details">
                   <div class="bill__to--field">
-                    <input type="text" value="Bill To" class="bill-to__label" />
+                    <input
+                      type="text"
+                      value="Bill To"
+                      class="bill-to__label"
+                      required
+                    />
                     <textarea
                       rows="2"
                       type="text"
@@ -175,7 +192,7 @@
                       d="M6 18 18 6M6 6l12 12"
                     />
                   </svg>
-                  <p class="cureency currency-rate">$</p>
+                  <p class="currency currency-rate curr curr1">Rs</p>
                   <input
                     type="number"
                     placeholder=""
@@ -185,11 +202,10 @@
                 </div>
                 <div class="item__row--amount">
                   <p>
-                    <span class="currency-amount">$ </span
-                    ><span class="item__row--amount-value">00</span>
+                    <span class="currency-amount curr curr2"> ₹</span
+                    ><span class="item__row--amount-value">0.00</span>
                   </p>
                 </div>
-
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -263,76 +279,43 @@
                       value="Subtotal"
                       class="subtotal__tittle title"
                     />
-                    <p class="subtotal__value value">0.00</p>
-                  </div>
-                  <div class="tax__box">
-                    <input type="text" value="Tax" class="tax__tittle title" />
-                    <input
-                      type="number"
-                      class="tax__input input-num"
-                      value="0"
-                    />
-                    <p class="tax__percentage percentage">%</p>
-                    <p class="tax__change--type">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="change--type--icon change-type"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3"
-                        />
-                      </svg>
+                    <p class="sub__value">
+                      <span class="curr curr2">₹</span>
+                      <span class="subtotal__value value"> 0.00 </span>
                     </p>
-
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="close-icon"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M6 18 18 6M6 6l12 12"
-                      />
-                    </svg>
                   </div>
-                  <div class="discount__box">
+                  <div class="discount__box box" data-box="discount">
                     <input
                       type="text"
                       value="Discount"
                       class="discount__tittle title"
                     />
-                    <input
-                      type="number"
-                      class="discount__input input-num"
-                      value="0"
-                    />
-                    <p class="discount__percentage percentage">%</p>
-                    <p class="discount__change--type">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="change--type--icon change-type"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3"
-                        />
-                      </svg>
-                    </p>
+                    <div class="input__num--box">
+                      <input
+                        type="number"
+                        class="discount__input inp input-num"
+                        value="0"
+                        data-type="discount"
+                      />
+                      <p class="discount__percentage percentage">%</p>
+                      <p class="discount__change--type">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="change--type--icon change-type"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3"
+                          />
+                        </svg>
+                      </p>
+                      <p class="currency type-curr curr curr1 hide">Rs</p>
+                    </div>
 
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -349,34 +332,65 @@
                       />
                     </svg>
                   </div>
-                  <div class="shipping__box">
+                  <div class="tax__box box" data-box="tax">
+                    <input type="text" value="Tax" class="tax__tittle title" />
+                    <div class="input__num--box">
+                      <input
+                        type="number"
+                        class="tax__input inp input-num"
+                        value="0"
+                        data-type="tax"
+                      />
+                      <p class="tax__percentage percentage">%</p>
+                      <p class="tax__change--type">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="change--type--icon change-type"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3"
+                          />
+                        </svg>
+                      </p>
+                      <p class="currency type-curr curr curr1 hide">Rs</p>
+                    </div>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="close-icon"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 18 18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </div>
+
+                  <div class="shipping__box box" data-box="shipping">
                     <input
                       type="text"
                       value="Shipping"
                       class="shipping__tittle title"
                     />
-                    <input
-                      type="number"
-                      class="shipping__input input-num"
-                      value="0"
-                    />
-                    <!-- <p class="shipping__percentage percentage">%</p>
-                    <p class="shipping__change--type">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="change--type--icon change-type"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3"
-                        />
-                      </svg>
-                    </p> -->
+                    <div class="ship__box">
+                      <input
+                        type="number"
+                        class="shipping__input inp input-num"
+                        value="0"
+                      />
+                      <p class="currency curr curr1">Rs</p>
+                    </div>
 
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -412,6 +426,23 @@
                     </svg>
                     <p class="discount">Discount</p>
                   </div>
+                  <div class="tax-btn">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="plus__icon--green"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 4.5v15m7.5-7.5h-15"
+                      />
+                    </svg>
+                    <p class="tax">Tax</p>
+                  </div>
                   <div class="shipping-btn">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -437,7 +468,10 @@
                       value="Total"
                       class="total__tittle title"
                     />
-                    <p class="total__value value">0.00</p>
+                    <p class="total-value">
+                      <span class="curr curr2">₹</span
+                      ><span class="total__value value">0.00</span>
+                    </p>
                   </div>
                   <div class="amount-paid__box">
                     <input
@@ -451,7 +485,7 @@
                         class="amount__input input-num"
                         value="0"
                       />
-                      <p class="currency">$</p>
+                      <p class="currency curr curr1">Rs</p>
                     </div>
                   </div>
                   <div class="balance-due__box">
@@ -460,7 +494,10 @@
                       value="Balance Due"
                       class="balance-due__tittle title"
                     />
-                    <p class="balance value">Rs. 0.00</p>
+                    <p class="bal__value">
+                      <span class="curr curr2">₹</span>
+                      <span class="balance value"> 0.00 </span>
+                    </p>
                   </div>
                 </div>
               </div>
@@ -469,7 +506,7 @@
         </div>
       </div>
       <div class="sidebar">
-        <button class="download__invoice">
+        <button class="download__invoice download__invoice--btn dwn__invoice">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -490,13 +527,26 @@
           <div class="currency-box">
             <p class="currency-label sidebar-label">CURRENCY</p>
             <select name="" id="" class="select__currency">
-              <option value="INR(RS)">INR (RS)</option>
+              <option value="INR" selected="selected" label="INR (Rs)">
+                INR (Rs)
+              </option>
+              <option value="NPR" label="NPR (Rs)">NPR (Rs)</option>
+              <option value="USD" label="USD ($)">USD ($)</option>
+              <option value="TTD" label="TTD (TT $)">TTD (TT $)</option>
+              <option value="EUR" label="EUR (€)">EUR (€)</option>
+              <option value="UZS" label="UZS (лв)">UZS (лв)</option>
+              <option value="SVC" label="SVC ($)">SVC ($)</option>
+              <option value="SYP" label="SYP (£)">SYP (£)</option>
             </select>
           </div>
           <div class="type-box">
             <p class="type-label sidebar-label">TYPE</p>
             <select name="" id="" class="select__type">
               <option value="Invoice">Invoice</option>
+              <option value="Credit Note">Credit Note</option>
+              <option value="Quote">Quote</option>
+              <option value="Purchase Order">Purchase Order</option>
+              <option value="Receipt">Receipt</option>
             </select>
           </div>
           <a href="#" class="save-default">Save Default</a>
@@ -504,10 +554,36 @@
         <div class="history">
           <button class="history-btn">
             <p class="history-tittle">History</p>
-            <div class="history__count">
+            <!-- <div class="history__count">
               <div class="history__bg"></div>
               <p class="history__num">1</p>
-            </div>
+            </div> -->
+          </button>
+        </div>
+        <div class="btn__container">
+          <button class="history-btn">
+            <p class="history-tittle">History</p>
+            <!-- <div class="history__count">
+              <div class="history__bg"></div>
+              <p class="history__num">1</p>
+            </div> -->
+          </button>
+          <button class="download__invoice dwn__invoice">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="download-icon"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+              />
+            </svg>
+            <p class="download-text">Download</p>
           </button>
         </div>
       </div>
