@@ -58,7 +58,7 @@
                     rows="2"
                     type="text"
                     placeholder="Who is this invoice from?(required)"
-                    class="invoice__from--input"
+                    class="invoice__from--input userInput"
                     value=""
                     required
                   ></textarea>
@@ -74,7 +74,7 @@
                     <textarea
                       rows="2"
                       type="text"
-                      class="bill-to__input"
+                      class="bill-to__input userInput"
                       placeholder="Who is this invoice to? (required)"
                     ></textarea>
                   </div>
@@ -83,7 +83,7 @@
                     <textarea
                       rows="2"
                       type="text"
-                      class="ship-to__input"
+                      class="ship-to__input userInput"
                       placeholder="(optional)"
                     ></textarea>
                   </div>
@@ -94,7 +94,12 @@
                   <input class="invoice__text" type="text" value="INVOICE" />
                   <div class="invoice__id--box">
                     <span class="hash">#</span>
-                    <input type="text" name="id" value="" class="invoice-id" />
+                    <input
+                      type="text"
+                      name="id"
+                      value=""
+                      class="invoice-id userInput"
+                    />
                   </div>
                 </div>
                 <div class="invoice__details">
@@ -106,7 +111,7 @@
                     />
                     <input
                       type="date"
-                      class="invoice__detail--input invoice__detail--input-date"
+                      class="invoice__detail--input invoice__detail--input-date userInput"
                     />
                   </div>
                   <div class="invoice__detail">
@@ -115,7 +120,10 @@
                       class="invoice__detail--label"
                       value="Payment Terms"
                     />
-                    <input type="text" class="invoice__detail--input" />
+                    <input
+                      type="text"
+                      class="invoice__detail--input userInput"
+                    />
                   </div>
                   <div class="invoice__detail">
                     <input
@@ -125,7 +133,7 @@
                     />
                     <input
                       type="date"
-                      class="invoice__detail--input invoice__detail--input-date"
+                      class="invoice__detail--input invoice__detail--input-date userInput"
                     />
                   </div>
                   <div class="invoice__detail">
@@ -134,7 +142,10 @@
                       class="invoice__detail--label"
                       value="PO Number"
                     />
-                    <input type="text" class="invoice__detail--input" />
+                    <input
+                      type="text"
+                      class="invoice__detail--input userInput"
+                    />
                   </div>
                 </div>
               </div>
@@ -167,14 +178,14 @@
                   type="text"
                   placeholder="Description of service or product..."
                   value=""
-                  class="item__row--input input-item"
+                  class="item__row--input input-item userInput"
                 />
 
                 <input
                   type="number"
                   placeholder="Quantity"
                   value="1"
-                  class="item__row--input input-quntity"
+                  class="item__row--input input-quntity userInput"
                 />
 
                 <div class="item__input--rate">
@@ -197,7 +208,7 @@
                     type="number"
                     placeholder=""
                     value=""
-                    class="item__row--input input-rate"
+                    class="item__row--input input-rate userInput"
                   />
                 </div>
                 <div class="item__row--amount">
@@ -253,7 +264,7 @@
                   <textarea
                     rows="3"
                     type="text"
-                    class="notes__input invoice__bottom--left-input"
+                    class="notes__input invoice__bottom--left-input userInput"
                     placeholder="Notes - any relevant information not already covered"
                   ></textarea>
                 </div>
@@ -266,7 +277,7 @@
                   <textarea
                     rows="3"
                     type="text"
-                    class="terms__input invoice__bottom--left-input"
+                    class="terms__input invoice__bottom--left-input userInput"
                     placeholder="Terms and conditions - late fees, payment methods, delivery schedule"
                   ></textarea>
                 </div>
@@ -293,7 +304,7 @@
                     <div class="input__num--box">
                       <input
                         type="number"
-                        class="discount__input inp input-num"
+                        class="discount__input inp input-num userInput"
                         value="0"
                         data-type="discount"
                       />
@@ -337,7 +348,7 @@
                     <div class="input__num--box">
                       <input
                         type="number"
-                        class="tax__input inp input-num"
+                        class="tax__input inp input-num userInput"
                         value="0"
                         data-type="tax"
                       />
@@ -386,7 +397,7 @@
                     <div class="ship__box">
                       <input
                         type="number"
-                        class="shipping__input inp input-num"
+                        class="shipping__input inp input-num userInput"
                         value="0"
                       />
                       <p class="currency curr curr1">Rs</p>
@@ -482,7 +493,7 @@
                     <div class="amount__input--box">
                       <input
                         type="number"
-                        class="amount__input input-num"
+                        class="amount__input input-num userInput"
                         value="0"
                       />
                       <p class="currency curr curr1">Rs</p>
@@ -554,19 +565,11 @@
         <div class="history">
           <button class="history-btn">
             <p class="history-tittle">History</p>
-            <!-- <div class="history__count">
-              <div class="history__bg"></div>
-              <p class="history__num">1</p>
-            </div> -->
           </button>
         </div>
         <div class="btn__container">
           <button class="history-btn">
             <p class="history-tittle">History</p>
-            <!-- <div class="history__count">
-              <div class="history__bg"></div>
-              <p class="history__num">1</p>
-            </div> -->
           </button>
           <button class="download__invoice dwn__invoice">
             <svg

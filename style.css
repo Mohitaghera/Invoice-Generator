@@ -879,7 +879,7 @@ html {
     gap: 1rem;
   }
   .item__line--close-icon {
-    display: inline-block !important;
+    /* display: inline-block; */
     top: 2rem;
     right: 1rem;
   }

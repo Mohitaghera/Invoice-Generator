@@ -64,6 +64,7 @@ addLogoBtn.addEventListener("click", function () {
         const img = document.createElement("img");
         img.src = imgSrc;
         img.style.objectFit = "cover";
+        img.classList.add("userlogo");
         img.style.width = "12rem";
         img.style.height = "14rem";
         addLogoBtn.style.pointerEvents = "none";
@@ -237,6 +238,8 @@ addLineBtn.addEventListener("click", function () {
   document
     .querySelector(".invoice__middle")
     .insertBefore(newItemRow, addLineItem);
+
+  updateCloseIcon();
 });
 
 invoiceMiddle.addEventListener("mouseover", function (event) {
@@ -253,13 +256,15 @@ invoiceMiddle.addEventListener("mouseover", function (event) {
   }
 });
 invoiceMiddle.addEventListener("mouseout", function (event) {
-  const target = event.target.closest(".item__row");
-  if (target.classList.contains("item__row")) {
-    const closeIcon = target
-      .closest(".item__row")
-      .querySelector(".item__line--close-icon");
-    if (closeIcon) {
-      closeIcon.style.display = "none";
+  if (window.innerWidth > 800) {
+    const target = event.target.closest(".item__row");
+    if (target.classList.contains("item__row")) {
+      const closeIcon = target
+        .closest(".item__row")
+        .querySelector(".item__line--close-icon");
+      if (closeIcon) {
+        closeIcon.style.display = "none";
+      }
     }
   }
 });
@@ -277,6 +282,7 @@ invoiceMiddle.addEventListener("click", function (event) {
     }
   }
   updateSubtotal();
+  updateCloseIcon();
 });
 
 function validateInput(inp) {
@@ -433,3 +439,26 @@ saveDefault.addEventListener("click", function () {
   );
   saveDefault.style.display = "none";
 });
+
+function updateCloseIcon() {
+  const closeIcons = document.querySelectorAll(".item__line--close-icon");
+
+  if (window.innerWidth < 800) {
+    const rows = document.querySelectorAll(".item__row");
+    if (rows.length === 1) {
+      closeIcons.forEach((close) => {
+        close.style.display = "none";
+      });
+    } else {
+      closeIcons.forEach((close) => {
+        close.style.display = "inline-block";
+      });
+    }
+  } else {
+    closeIcons.forEach((close) => {
+      close.style.display = "none";
+    });
+  }
+}
+window.addEventListener("resize", updateCloseIcon);
+updateCloseIcon();
